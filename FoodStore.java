@@ -18,9 +18,4 @@ class FoodStore {
         }
     }
 
-/*    // returns dish on demand
-    public Dish getDish(Dish dish) {
-        // Some computation, processing or any other algorithm
-        return dish;
-    }*/
 }
