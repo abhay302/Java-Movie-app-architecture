@@ -7,24 +7,20 @@ enum Dish {
 
 // The FoodStore will give dishes to the customers
 class FoodStore {
-    
+
     // returns dish depending upon the type of movie
     public Dish getFirstDish(Type type) {
-        if (type.equals(Type.TOLLYWOOD)) {
-            return Dish.DOSA;
+        switch(type) {
+        case TOLLYWOOD: return Dish.DOSA;
+        case BOLLYWOOD: return Dish.DAL_MAKHNI;
+        case HOLLYWOOD: return Dish.PEPPER_STEAK;
+        default: return null;
         }
-        if (type.equals(Type.BOLLYWOOD)) {
-            return Dish.DAL_MAKHNI;
-        }
-        if (type.equals(Type.HOLLYWOOD)) {
-            return Dish.PEPPER_STEAK;
-        }
-        return null;
     }
-    
-    // returns dish on demand
+
+/*    // returns dish on demand
     public Dish getDish(Dish dish) {
-        // Some computation, processing or any other algorithm 
+        // Some computation, processing or any other algorithm
         return dish;
-    }
+    }*/
 }
