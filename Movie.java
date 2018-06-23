@@ -85,12 +85,12 @@ class Movie {
     }
 
     // returns a list of all Movies
-    public List<Movie> getAllMovies() {
+    public static List<Movie> getAllMovies() {
         return Movie.movie;
     }
 
     // returns a list of all movies of specified type
-    public List<Movie> getSpecificMovie(Type type) {
+    public static List<Movie> getSpecificMovie(Type type) {
         ArrayList<Movie> arr = new ArrayList<>();
         for (Movie movie : Movie.movie) {
             if (movie.getType().equals(type)) {
