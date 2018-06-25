@@ -35,27 +35,29 @@ class Movie {
     private String genre;
     private Date releaseDate;
     private Type type;
-    private static List<Movie> movie = new ArrayList<>();
-    
+
+    // The list stores the movie objects
+    private static List<Movie> list = new ArrayList<>();
+
+    // Specify whether the movie is block buster or not
+    private boolean isblockBuster;
+
     // This function initializes the ArrayList of movies
     static {
         SimpleDateFormat format = new SimpleDateFormat("dd-MM-YYYY");
         try {
-            Movie.movie.add(new Movie("Mukkabaaz", 2018, "Hindi", "Drama", format.parse("12-01-2018"), Type.BOLLYWOOD));
-            Movie.movie.add(new Movie("Padmaavat", 2018, "Hindi", "Period drama", format.parse("25-01-2018"), Type.BOLLYWOOD));
-            Movie.movie.add(new Movie("Baahubali: The Conclusion", 2017, "Telgu/Tamil", "Epic/Historical fiction",
+            list.add(new Movie("Mukkabaaz", 2018, "Hindi", "Drama", format.parse("12-01-2018"), Type.BOLLYWOOD));
+            list.add(new Movie("Padmaavat", 2018, "Hindi", "Period drama", format.parse("25-01-2018"), Type.BOLLYWOOD));
+            list.add(new Movie("Baahubali: The Conclusion", 2017, "Telgu/Tamil", "Epic/Historical fiction",
                     format.parse("28-01-2017"), Type.TOLLYWOOD));
-            Movie.movie.add(new Movie("Black Panther", 2018, "English", "Fantasy/Science fiction film",
+            list.add(new Movie("Black Panther", 2018, "English", "Fantasy/Science fiction film",
                     format.parse("16-02-2018"), Type.HOLLYWOOD));
-            Movie.movie.add(new Movie("Fifty Shades of Grey", 2015, "English", "Drama/Thriller", format.parse("20-02-2015"),
+            list.add(new Movie("Fifty Shades of Grey", 2015, "English", "Drama/Thriller", format.parse("20-02-2015"),
                     Type.HOLLYWOOD));
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
-
-    // Specify whether the movie is block buster or not
-    private boolean blockBuster;
 
     // Constructor to initialize the movie object
     public Movie(String name, int year, String language, String genre, Date releaseDate, Type type) {
@@ -65,11 +67,11 @@ class Movie {
         this.genre = genre;
         this.releaseDate = releaseDate;
         this.type = type;
-        
-        Movie.movie.add(this);
+
+        list.add(this);
         Random randomGenerator = new Random();
-        
-        this.blockBuster = randomGenerator.nextBoolean();
+
+        this.isblockBuster = randomGenerator.nextBoolean();
     }
 
     // Override toString() method to display the content of the movie object
@@ -86,13 +88,13 @@ class Movie {
 
     // returns a list of all Movies
     public static List<Movie> getAllMovies() {
-        return Movie.movie;
+        return list;
     }
 
     // returns a list of all movies of specified type
     public static List<Movie> getSpecificMovie(Type type) {
         ArrayList<Movie> arr = new ArrayList<>();
-        for (Movie movie : Movie.movie) {
+        for (Movie movie : list) {
             if (movie.getType().equals(type)) {
                 arr.add(movie);
             }
@@ -120,7 +122,7 @@ class Movie {
      * time.
      */
     public boolean isBlockBuster() {
-        return blockBuster;
+        return isblockBuster;
     }
 
     public Type getType() {
