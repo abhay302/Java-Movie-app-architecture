@@ -71,7 +71,7 @@ class Movie {
         list.add(this);
         Random randomGenerator = new Random();
 
-        this.isblockBuster = randomGenerator.nextBoolean();
+        isblockBuster = randomGenerator.nextBoolean();
     }
 
     // Override toString() method to display the content of the movie object
